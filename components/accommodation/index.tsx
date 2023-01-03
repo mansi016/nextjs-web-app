@@ -1,5 +1,6 @@
 import Autocomplete from "react-google-autocomplete";
 import { useRouter } from "next/router";
+import styles from "./accommodation.module.scss";
 
 export default function Accommodation() {
   const router = useRouter();
@@ -7,13 +8,14 @@ export default function Accommodation() {
   return (
     <>
       <div>
-        <h2>Welcome to accommodation</h2>
+        <h2 className={styles.welcomeMessageWrapper}>Welcome to accommodation</h2>
         <div>
           {/* <Autocomplete
             apiKey="ABcsdfojwdDOSFNOSnowiwbnf" // place your google map api key here
             onPlaceSelected={(place) => console.log(place)}
           /> */}
           <select
+            className={styles.selectPlaceWrapper}
             onChange={(e) => {
               router.push(`/student-accommodation/${e.target.value}`);
             }}
